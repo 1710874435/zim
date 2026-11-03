@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{c9ff5749-6cc9-4e4b-8462-b98be60201ab}</ProjectGuid>
+    <RootNamespace>PhaseShiftGrayCode3D</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 12.8.props" />
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\third\OPENCV_470_RELEASE.props" />
+    <Import Project="PCL114_Release_x64.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <CudaToolkitDir Condition="'$(CudaToolkitDir)'=='' and Exists('C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\')">C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/</CudaToolkitDir>
+    <CUDA_PATH Condition="'$(CUDA_PATH)'==''">$(CudaToolkitDir)</CUDA_PATH>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <LibraryPath>$(CudaToolkitDir)lib\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IncludePath>$(SolutionDir)third\opencv-4.7.0-windows\opencv\build\include;$(SolutionDir)third\opencv-4.7.0-windows\opencv\build\include\opencv2;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)third\opencv-4.7.0-windows\opencv\build\x64\vc16\lib;$(CudaToolkitDir)lib\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(SolutionDir)third\opencv-4.7.0-windows\opencv\build\include;$(SolutionDir)third\opencv-4.7.0-windows\opencv\build\include\opencv2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(SolutionDir)third\opencv-4.7.0-windows\opencv\build\include;$(SolutionDir)third\opencv-4.7.0-windows\opencv\build\include\opencv2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(SolutionDir)third\opencv-4.7.0-windows\opencv\build\include;$(SolutionDir)third\opencv-4.7.0-windows\opencv\build\include\opencv2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opencv_world470d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <Optimization>Disabled</Optimization>
+      <OpenMPSupport>true</OpenMPSupport>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(SolutionDir)third\opencv-4.7.0-windows\opencv\build\include;$(SolutionDir)third\opencv-4.7.0-windows\opencv\build\include\opencv2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\JSLAB_ChessboardDetector.cpp" />
+    <ClCompile Include="src\JSLAB_CircleGridDetector.cpp" />
+    <ClCompile Include="src\JSLAB_Demo_Dual.cpp" />
+    <ClCompile Include="src\JSLAB_MLS_Filter.cpp" />
+    <ClCompile Include="src\JSLAB_PhaseEpipolarReconstructor_V1.cpp" />
+    <ClCompile Include="src\JSLAB_PhaseEpipolarReconstructor_V2.cpp" />
+    <ClCompile Include="src\JSLAB_PhaseEpipolarReconstructor_V2_GPU.cpp" />
+    <ClCompile Include="src\JSLAB_PhaseEpipolarReconstructor_V3.cpp" />
+    <ClCompile Include="src\JSLAB_PhaseDisparityExporter.cpp" />
+    <ClCompile Include="src\JSLAB_PhaseShiftDecoder.cpp" />
+    <ClCompile Include="src\JSLAB_PhaseShiftDecoder_V1.cpp" />
+    <ClCompile Include="src\JSLAB_PhaseShiftDecoder_V2.cpp" />
+    <ClCompile Include="src\JSLAB_PhaseShiftDecoder_V2_GPU.cpp" />
+    <ClCompile Include="src\JSLAB_StereoCalibParams_V1.cpp" />
+    <ClCompile Include="src\JSLAB_StereoCalibParams_V2.cpp" />
+    <ClCompile Include="src\JSLAB_StereoCalib_V1.cpp" />
+    <ClCompile Include="src\JSLAB_StereoCalib_V2.cpp" />
+    <ClCompile Include="src\main.cpp">
+      <ForcedIncludeFiles>$(ProjectDir)src\main_forward_declarations.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\dllexport.h" />
+    <ClInclude Include="src\JSLAB_ChessboardDetector.h" />
+    <ClInclude Include="src\JSLAB_CircleGridDetector.h" />
+    <ClInclude Include="src\JSLAB_MLS_Filter.h" />
+    <ClInclude Include="src\JSLAB_PhaseEpipolarReconstructor_V1.h" />
+    <ClInclude Include="src\JSLAB_PhaseEpipolarReconstructor_V2.h" />
+    <ClInclude Include="src\JSLAB_PhaseEpipolarReconstructor_V2_GPU.h" />
+    <ClInclude Include="src\JSLAB_PhaseEpipolarReconstructor_V3.h" />
+    <ClInclude Include="src\JSLAB_PhaseShiftDecoder.h" />
+    <ClInclude Include="src\JSLAB_PhaseShiftDecoder_V1.h" />
+    <ClInclude Include="src\JSLAB_PhaseShiftDecoder_V2.h" />
+    <ClInclude Include="src\JSLAB_HDRPhaseFit.h" />
+    <ClInclude Include="src\JSLAB_PhasePreview.h" />
+    <ClInclude Include="src\JSLAB_PhaseShiftDecoder_V2_GPU.h" />
+    <ClInclude Include="src\JSLAB_StereoCalibParams_V1.h" />
+    <ClInclude Include="src\JSLAB_StereoCalibParams_V2.h" />
+    <ClInclude Include="src\JSLAB_StereoCalib_V1.h" />
+    <ClInclude Include="src\JSLAB_StereoCalib_V2.h" />
+    <ClInclude Include="src\main_forward_declarations.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="src\JSLAB_MLS_Filter.cu">
+      <FileType>Document</FileType>
+    </CudaCompile>
+    <CudaCompile Include="src\JSLAB_PhaseEpipolarReconstructor_V2_GPU.cu" />
+    <CudaCompile Include="src\JSLAB_PhaseShiftDecoder_V2_GPU.cu" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 12.8.targets" />
+  </ImportGroup>
+</Project>

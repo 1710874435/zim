@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\JSLAB_ChessboardDetector.cpp" />
+    <ClCompile Include="src\JSLAB_CircleGridDetector.cpp" />
+    <ClCompile Include="src\JSLAB_PhaseEpipolarReconstructor_V1.cpp" />
+    <ClCompile Include="src\JSLAB_PhaseEpipolarReconstructor_V2.cpp" />
+    <ClCompile Include="src\JSLAB_PhaseShiftDecoder.cpp" />
+    <ClCompile Include="src\JSLAB_PhaseShiftDecoder_V1.cpp" />
+    <ClCompile Include="src\JSLAB_PhaseShiftDecoder_V2.cpp" />
+    <ClCompile Include="src\JSLAB_StereoCalib_V1.cpp" />
+    <ClCompile Include="src\JSLAB_StereoCalibParams_V1.cpp" />
+    <ClCompile Include="src\JSLAB_MLS_Filter.cpp" />
+    <ClCompile Include="src\JSLAB_StereoCalibParams_V2.cpp" />
+    <ClCompile Include="src\JSLAB_StereoCalib_V2.cpp" />
+    <ClCompile Include="src\JSLAB_Demo_Dual.cpp" />
+    <ClCompile Include="src\JSLAB_PhaseEpipolarReconstructor_V2_GPU.cpp" />
+    <ClCompile Include="src\JSLAB_PhaseShiftDecoder_V2_GPU.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\JSLAB_PhaseEpipolarReconstructor_V3.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\JSLAB_ChessboardDetector.h" />
+    <ClInclude Include="src\JSLAB_CircleGridDetector.h" />
+    <ClInclude Include="src\JSLAB_PhaseEpipolarReconstructor_V1.h" />
+    <ClInclude Include="src\JSLAB_PhaseEpipolarReconstructor_V2.h" />
+    <ClInclude Include="src\JSLAB_PhaseShiftDecoder.h" />
+    <ClInclude Include="src\JSLAB_PhaseShiftDecoder_V1.h" />
+    <ClInclude Include="src\JSLAB_PhaseShiftDecoder_V2.h" />
+    <ClInclude Include="src\JSLAB_HDRPhaseFit.h" />
+    <ClInclude Include="src\JSLAB_PhasePreview.h" />
+    <ClInclude Include="src\JSLAB_StereoCalib_V1.h" />
+    <ClInclude Include="src\JSLAB_StereoCalibParams_V1.h" />
+    <ClInclude Include="src\dllexport.h" />
+    <ClInclude Include="src\JSLAB_MLS_Filter.h" />
+    <ClInclude Include="src\JSLAB_StereoCalibParams_V2.h" />
+    <ClInclude Include="src\JSLAB_StereoCalib_V2.h" />
+    <ClInclude Include="src\JSLAB_PhaseEpipolarReconstructor_V2_GPU.h" />
+    <ClInclude Include="src\JSLAB_PhaseShiftDecoder_V2_GPU.h" />
+    <ClInclude Include="src\JSLAB_PhaseEpipolarReconstructor_V3.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="src\JSLAB_MLS_Filter.cu" />
+    <CudaCompile Include="src\JSLAB_PhaseEpipolarReconstructor_V2_GPU.cu" />
+    <CudaCompile Include="src\JSLAB_PhaseShiftDecoder_V2_GPU.cu" />
+  </ItemGroup>
+</Project>
